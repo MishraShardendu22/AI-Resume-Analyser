@@ -9,6 +9,13 @@ spec:
     - port: 8000
       targetPort: 8000
 ---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-gateway-config
+data:
+  CORS_ORIGINS: "http://localhost:8080"  # Update this for production deployments
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -36,6 +43,9 @@ spec:
             - name: JWT_ALGORITHM
               value: HS256
             - name: CORS_ORIGINS
-              value: http://localhost:8080
+              valueFrom:
+                configMapKeyRef:
+                  name: api-gateway-config
+                  key: CORS_ORIGINS
           ports:
             - containerPort: 8000
