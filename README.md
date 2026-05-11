@@ -1,4 +1,4 @@
-# AI Resume Analyzer
+# AI Resume Analyzer 
 
 Production-style monorepo for an AI Resume Analyzer with Python microservices and a Next.js frontend. The platform supports resume uploads (PDF/DOCX/TXT), ATS scoring, resume-to-job matching, skill gap analysis, recruiter ranking, and AI-generated content.
 
